@@ -52,7 +52,7 @@ class Msp430Gdb < Formula
     args << '--enable-gold=both' if build.include? 'enable-gold-both'
     args << '--enable-gold=gold' if build.include? 'enable-gold-gold'
     args << '--enable-gold=ld' if build.include? 'enable-gold-ld'
-    args << '--enable-libada' if buld.include? 'enable-libada'
+    args << '--enable-libada' if build.include? 'enable-libada'
     args << '--enable-libssp' if build.include? 'enable-libssp'
     args << '--enable-build-with-cxx' if build.include? 'enable-build-with-cxx'
 
