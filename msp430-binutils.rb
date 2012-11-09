@@ -14,7 +14,7 @@ class Msp430Binutils < Formula
     sha256 '6c7af8ed1c8cf9b4b9d6e6fe09a3e1d3d479fe63984ba8b9b26bf356b6313ca9'
   end
 
-  option 'disable-libbfd', 'Disable installation of libbfd.'
+  option 'enable-libbfd', 'Disable installation of libbfd.'
 
   def patches
     if build.devel?
@@ -32,7 +32,7 @@ class Msp430Binutils < Formula
             "--disable-werror",
             "--disable-nls"]
 
-    unless build.include? 'disable-libbfd'
+    if build.include? 'enable-libbfd'
       cd "bfd" do
         ohai "building libbfd"
         system "./configure", "--enable-install-libbfd", *args
