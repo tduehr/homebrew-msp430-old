@@ -2,7 +2,7 @@ require 'formula'
 
 class Msp430Gcc < Formula
   homepage 'http://mspgcc.sourceforge.net/'
-  url 'ftp://ftpmirror.gnu.org/pub/gnu/gcc/gcc-4.6.3/gcc-4.6.3.tar.bz2'
+  url 'http://ftpmirror.gnu.org/gcc/gcc-4.6.3/gcc-4.6.3.tar.bz2'
   version '20120406'
   sha256  'e8f5853d4eec2f5ebaf8a72ae4d53c436aacf98153b2499f8635b48c4718a093'
   head 'git://mspgcc.git.sourceforge.net/gitroot/mspgcc/gcc'

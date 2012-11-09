@@ -2,7 +2,7 @@ require 'formula'
 
 class Msp430Binutils < Formula
   homepage 'http://mspgcc.sourceforge.net/'
-  url 'ftp://ftpmirror.gnu.org/pub/gnu/binutils/binutils-2.21.1a.tar.bz2'
+  url 'http://ftpmirror.gnu.org/binutils/binutils-2.21.1a.tar.bz2'
   version '20120406'
   sha256  'cdecfa69f02aa7b05fbcdf678e33137151f361313b2f3e48aba925f64eabf654'
 
