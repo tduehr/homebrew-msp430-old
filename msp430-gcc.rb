@@ -9,6 +9,9 @@ class Msp430Gcc < Formula
 
   depends_on 'tduehr/msp430/msp430mcu'
   depends_on 'tduehr/msp430/msp430-binutils'
+  depends_on 'gmp'
+  depends_on 'mpfr'
+  depends_on 'libmpc'
 
   devel do
     version '20120911'
