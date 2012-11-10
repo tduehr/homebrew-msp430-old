@@ -10,16 +10,6 @@ class Msp430Gdb < Formula
   depends_on 'tduehr/msp430/msp430mcu'
   depends_on 'tduehr/msp430/msp430-gcc'
 
-  # --enable-gold[=ARG]     build gold [ARG={both}[/{gold,ld}]]
-  option 'enable-gold-both','build both gold and ld [untested]'
-  option 'enable-gold-gold','build gold [untested]'
-  option 'enable-gold-ld','build ld [untested]'
-  # --enable-libada         build libada directory
-  option 'enable-libada', 'build libada directory [untested]'
-  
-  # --enable-libssp         build libssp directory
-  option 'enable-libssp', 'build libssp directory [untested]'
-
   # --enable-build-with-cxx build with C++ compiler instead of C compiler
   option 'enable-build-with-cxx', 'build with C++ compiler instead of C compiler [untested]'
 
@@ -38,9 +28,9 @@ class Msp430Gdb < Formula
             "--target=msp430",
             # Sandbox everything...
             "--prefix=#{prefix}",
-            # "--with-gmp=#{gmp.prefix}",
-            # "--with-mpfr=#{mpfr.prefix}",
-            # "--with-mpc=#{libmpc.prefix}",
+            "--with-gmp=#{gmp.prefix}",
+            "--with-mpfr=#{mpfr.prefix}",
+            "--with-mpc=#{libmpc.prefix}",
             # ...except the stuff in share...
             # "--datarootdir=#{share}",
             # ...and the binaries...
@@ -49,11 +39,6 @@ class Msp430Gdb < Formula
             # "--with-as=/usr/local/bin/msp430-as"
            ]
 
-    args << '--enable-gold=both' if build.include? 'enable-gold-both'
-    args << '--enable-gold=gold' if build.include? 'enable-gold-gold'
-    args << '--enable-gold=ld' if build.include? 'enable-gold-ld'
-    args << '--enable-libada' if build.include? 'enable-libada'
-    args << '--enable-libssp' if build.include? 'enable-libssp'
     args << '--enable-build-with-cxx' if build.include? 'enable-build-with-cxx'
 
     mkdir 'build'
