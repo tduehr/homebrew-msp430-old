@@ -6,8 +6,6 @@ class Msp430mcu < Formula
   sha256  '0637014e8e509746c3f6df8e1d65b786770d162b3a0b86548bdf76ac3102c96e'
   head 'git://mspgcc.git.sourceforge.net/gitroot/mspgcc/msp430mcu'
 
-  keg_only "cross compile tools"
-
   devel do
     url 'http://sourceforge.net/projects/mspgcc/files/msp430mcu-devel/msp430mcu-devel-20120406.tar.bz2'
     version '20120716'
