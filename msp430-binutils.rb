@@ -9,12 +9,12 @@ class Msp430Binutils < Formula
   depends_on 'tduehr/msp430/msp430mcu'
 
   devel do
-    url 'ftp://ftpmirror.gnu.org/pub/gnu/binutils/binutils-2.22.tar.bz2'
+    url 'http://ftpmirror.gnu.org/binutils/binutils-2.22.tar.bz2'
     version '20120911'
     sha256 '6c7af8ed1c8cf9b4b9d6e6fe09a3e1d3d479fe63984ba8b9b26bf356b6313ca9'
   end
 
-  option 'enable-libbfd', 'Disable installation of libbfd.'
+  option 'enable-libbfd', 'enable installation of libbfd.'
 
   def patches
     if build.devel?
@@ -45,5 +45,12 @@ class Msp430Binutils < Formula
 
     system "make"
     system "make install"
+
+    multios = `gcc --print-multi-os-dir`.chomp
+
+    # binutils already has a libiberty.a. We remove ours, because
+    # otherwise, the symlinking of the keg fails
+    ohai "checking...#{HOMEBREW_PREFIX + 'lib' + multios + 'libiberty.a'}"
+    File.unlink "#{lib}/#{multios}/libiberty.a" if File.exist? HOMEBREW_PREFIX + 'lib' + multios + 'libiberty.a'
   end
 end

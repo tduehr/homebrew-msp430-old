@@ -41,8 +41,8 @@ class Msp430Libc < Formula
       msp430 = File.join prefix, 'msp430'
       # copy include and lib files where msp430-gcc searches for them
       # this wouldn't be necessary with a standard prefix
-      # ohai "copying #{msp430} -> #{msp430_gcc.prefix}"
-      # cp_r msp430, msp430_gcc.prefix
+      ohai "copying #{msp430} -> #{msp430_gcc.prefix}"
+      cp_r msp430, msp430_gcc.prefix
     end
   end
 end

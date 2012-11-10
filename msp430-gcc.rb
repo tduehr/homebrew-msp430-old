@@ -15,7 +15,7 @@ class Msp430Gcc < Formula
 
   devel do
     version '20120911'
-    url 'ftp://ftpmirror.gnu.org/pub/gnu/gcc/gcc-4.7.0/gcc-4.7.0.tar.bz2'
+    url 'http://ftpmirror.gnu.org/gcc/gcc-4.7.0/gcc-4.7.0.tar.bz2'
     sha256 'a680083e016f656dab7acd45b9729912e70e71bbffcbf0e3e8aa1cccf19dc9a5'
   end
 
@@ -73,8 +73,18 @@ class Msp430Gcc < Formula
 
       # binutils already has a libiberty.a. We remove ours, because
       # otherwise, the symlinking of the keg fails
-      ohai "checking...", HOMEBREW_PREFIX + 'lib' + multios + 'libiberty.a'
+      ohai "checking...#{HOMEBREW_PREFIX + 'lib' + multios + 'libiberty.a'}"
       File.unlink "#{lib}/#{multios}/libiberty.a" if File.exist? HOMEBREW_PREFIX + 'lib' + multios + 'libiberty.a'
+
+      # copy include and lib files from msp430mcu to where msp430-gcc searches for them
+      # this wouldn't be necessary with a standard prefix
+      msp430 = prefix + 'msp430'
+      msp430mcu = Formula.factory('tduehr/msp430/msp430mcu')
+      msp430_binutils = Formula.factory('tduehr/msp430/msp430-binutils')
+      ohai "copying #{msp430mcu.prefix+'msp430'} -> #{prefix}"
+      cp_r msp430mcu.prefix+"msp430", prefix
+      ohai "copying #{msp430_binutils.prefix+'msp430'} -> #{prefix}"
+      cp_r msp430_binutils.prefix+"msp430", prefix
 
       # don't install gpl man page if it already exists
       File.unlink man7 + 'gpl.7'
