@@ -7,7 +7,7 @@ class Msp430Libc < Formula
   head 'git://mspgcc.git.sourceforge.net/gitroot/mspgcc/msp430-libc'
 
   devel do
-    url 'http://sourceforge.net/projects/mspgcc/files/msp430-libc-devel/msp430-libc-devel-20120716.tar.bz2'
+    url 'http://sourceforge.net/projects/mspgcc/files/msp430-libc/msp430-libc-20120716.tar.bz2'
     sha256  'cbd78f468e9e3b2df9060f78e8edb1b7bfeb98a9abfa5410d23f63a5dc161c7d'
   end
 
