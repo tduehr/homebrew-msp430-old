@@ -5,6 +5,7 @@ class Msp430Binutils < Formula
   url 'http://ftpmirror.gnu.org/binutils/binutils-2.21.1a.tar.bz2'
   version '20120406'
   sha256  'cdecfa69f02aa7b05fbcdf678e33137151f361313b2f3e48aba925f64eabf654'
+  head 'git://mspgcc.git.sourceforge.net/gitroot/mspgcc/binutils'
 
   depends_on 'tduehr/msp430/msp430mcu'
 
